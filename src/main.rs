@@ -64,7 +64,7 @@ fn main() {
 
     // Fonction utilisation
     {
-        title("Fonction utilisaiton");
+        title("Fonction utilisation");
         say_hello();
         let number1 = 10.0;
         let number2 = 5.0;
@@ -72,5 +72,65 @@ fn main() {
         println!("{} + {} = {}", number1, number2, result);
     }
 
+    // If & else
+    {
+        title("If & else");
+        let weight = 75.0;
+        let height = 172.0;
+        let bmi = (weight / (height * 2.0)) * 100.0;
+        if bmi >= 40.0 {
+            println!("Votre IMC est de {:.2} => Obésité morbide.", bmi);
+        } else if bmi >= 30.0 {
+            println!("Votre IMC est de {:.2} => Obésité.", bmi);
+        } else if bmi >= 25.0 {
+            println!("Votre IMC est de {:.2} => Surpoids.", bmi)
+        } else if bmi >= 18.5 {
+            println!("Votre IMC est de {:.2} => Poids normal.", bmi);
+        } else {
+            println!("Votre IMC est de {:.2} => Poids insuffisant.", bmi );
+        }
+    }
+
+    // Loop
+    {
+        title("Loop");
+        let mut count = 0;
+        // loop créé une boucle infinie, doit être quitté avec le mot clé break
+        'main_loop: loop {
+            println!("Dans la boucle principale count vaut : {}", count);
+            loop {
+                count += 1;
+                println!("Dans la sous-boucle count vaut : {}", count);
+                if count == 5 {
+                    println!("Ici on quitte la boucle principale en utilisant son label.");
+                    break 'main_loop;
+                }
+            }
+        }
+    }
+
+    // While
+    {
+        title("While");
+        let mut count_down = 3;
+        while count_down != 0 {
+            println!("{} !", count_down);
+            count_down -= 1;
+            if count_down == 0 {
+                println!("Décollage ! 🚀")
+            }
+        }
+    }
+
+    // For
+    {
+        title("For");
+        const DAYS_OF_WEEK: [&str; 7] = ["Lundi", "Mardi", "Mercredi", "Jeudi", "Vendredi", "Samedi", "Dimanche"];
+        let mut day_number = 0;
+        for day in DAYS_OF_WEEK {
+            day_number += 1;
+            println!("Le jour {} est {}", day_number, day);
+        }
+    }
 
 }
