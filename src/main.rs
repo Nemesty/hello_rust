@@ -1,5 +1,18 @@
+// Fonction sans paramètre
+fn say_hello() {
+    println!("Bonjour !");
+}
+
+// Fonction avec paramètre
 fn title(titre: &str) {
     println!("\n⭐ {} :", titre);
+}
+
+// Fonction avec paramètre et retour
+fn sum(num1: f64, num2: f64) -> f64 {
+    // La dernière expression est retourner
+    // Il ne faut pas mètre de point virgule pour indiquer une expression de retour
+    num1 + num2
 }
 
 fn main() {
@@ -48,4 +61,16 @@ fn main() {
         println!("Le premier jour de la semaine est le : {}", DAYS_OF_WEEK[0]);
 
     }
+
+    // Fonction utilisation
+    {
+        title("Fonction utilisaiton");
+        say_hello();
+        let number1 = 10.0;
+        let number2 = 5.0;
+        let result = sum(number1, number2);
+        println!("{} + {} = {}", number1, number2, result);
+    }
+
+
 }
