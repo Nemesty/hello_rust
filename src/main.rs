@@ -4,6 +4,7 @@ fn say_hello() {
 }
 
 // Fonction avec paramètre
+// Ici la valeur passée est une référence et non un déplacement de la valeure
 fn title(titre: &str) {
     println!("\n⭐ {} :", titre);
 }
@@ -132,5 +133,21 @@ fn main() {
             println!("Le jour {} est {}", day_number, day);
         }
     }
+
+    // Ownership
+    {
+        let tag = "Ownership";
+        // Ici je n'envoie pas la valeur à la fonction, mais seulement la référence
+        title(&tag);
+        // Créaiton d'une variable stockée sur le heap
+        let username = String::from("Nemesty");
+        // Changement de propriétaire
+        let pseudo = username;
+        // Impossible de faire appel à username, car la valeur a été déplacé :
+        // println!("username {}", username);
+        println!("pseudo : {}", pseudo);
+    } // Fin du scope, donc la variable pseudo est ici libérée
+
+    
 
 }
