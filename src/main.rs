@@ -152,7 +152,8 @@ fn main() {
     {
         title("Slice");
         let url = String::from("www.domaine.com");
-        let url = &url[3..];
+        // Ici nous coupons le String à partir de l'index 4 jusqu'à la fin
+        let url = &url[4..];
         println!("Le domaine est : {}", url);
     }
 }
