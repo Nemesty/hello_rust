@@ -148,6 +148,11 @@ fn main() {
         println!("pseudo : {}", pseudo);
     } // Fin du scope, donc la variable pseudo est ici libérée
 
-    
-
+    // Slice
+    {
+        title("Slice");
+        let url = String::from("www.domaine.com");
+        let url = &url[3..];
+        println!("Le domaine est : {}", url);
+    }
 }
