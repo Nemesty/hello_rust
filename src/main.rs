@@ -16,6 +16,21 @@ fn sum(num1: f64, num2: f64) -> f64 {
     num1 + num2
 }
 
+// Struct création
+struct Car {
+    engine_start: bool,
+    number_of_wheel: i32,
+    color: String,
+    electric: bool
+}
+// Création d'une méthode
+impl Car {
+    fn horn(&self) {
+        println!("📣 Pouéte ! Pouéte !");
+    }
+}
+
+// ######## MAIN ##########################
 fn main() {
 
     // Variables
@@ -155,5 +170,29 @@ fn main() {
         // Ici nous coupons le String à partir de l'index 4 jusqu'à la fin
         let url = &url[4..];
         println!("Le domaine est : {}", url);
+    }
+
+    // Struct utilisation
+    {
+        title("Struct");
+        let ami = Car {
+            engine_start: true,
+            number_of_wheel: 4,
+            color: String::from("Bleu"),
+            electric: true
+        };
+        println!("L'Ami possède {} roues et est de couleur {}.", ami.number_of_wheel, ami.color);
+        if ami.electric {
+            println!("L'Ami est une voiture éléctrique.");
+        } else {
+            println!("L'Ami n'est pas une voiture éléctrique.");
+        }
+        if ami.engine_start {
+            println!("La voiture est allumée.");
+        } else {
+            println!("La voiture est eteinte.");
+        }
+        // Appel d'une méthode :
+        ami.horn();
     }
 }
